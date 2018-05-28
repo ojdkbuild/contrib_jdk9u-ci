@@ -72,12 +72,41 @@ before_script:
   - $D tar -xjf ${OJDK_TAG}.tar.bz2
   - $D rm ${OJDK_TAG}.tar.bz2
   - $D mv jdk9u-${OJDK_TAG} jdk9u
-  - bash -c "for repo in `echo corba hotspot jaxp jaxws jdk langtools nashorn` ; do
-        $D curl -LO http://hg.openjdk.java.net/jdk-updates/jdk9u/${repo}/archive/${OJDK_TAG}.tar.bz2 ;
-        $D tar -xjf ${OJDK_TAG}.tar.bz2 ;
-        $D rm ${OJDK_TAG}.tar.bz2 ;
-        $D mv ${repo}-${OJDK_TAG} ./jdk9u/${repo} ;
-    done"
+  # corba  
+  - $D curl -LO http://hg.openjdk.java.net/jdk-updates/jdk9u/corba/archive/${OJDK_TAG}.tar.bz2
+  - $D tar -xjf ${OJDK_TAG}.tar.bz2
+  - $D rm ${OJDK_TAG}.tar.bz2
+  - $D mv corba-${OJDK_TAG} ./jdk9u/corba
+  # hotspot
+  - $D curl -LO http://hg.openjdk.java.net/jdk-updates/jdk9u/hotspot/archive/${OJDK_TAG}.tar.bz2
+  - $D tar -xjf ${OJDK_TAG}.tar.bz2
+  - $D rm ${OJDK_TAG}.tar.bz2
+  - $D mv hotspot-${OJDK_TAG} ./jdk9u/hotspot
+  # jaxp
+  - $D curl -LO http://hg.openjdk.java.net/jdk-updates/jdk9u/jaxp/archive/${OJDK_TAG}.tar.bz2
+  - $D tar -xjf ${OJDK_TAG}.tar.bz2
+  - $D rm ${OJDK_TAG}.tar.bz2
+  - $D mv jaxp-${OJDK_TAG} ./jdk9u/jaxp
+  # jaxws
+  - $D curl -LO http://hg.openjdk.java.net/jdk-updates/jdk9u/jaxws/archive/${OJDK_TAG}.tar.bz2
+  - $D tar -xjf ${OJDK_TAG}.tar.bz2
+  - $D rm ${OJDK_TAG}.tar.bz2
+  - $D mv jaxws-${OJDK_TAG} ./jdk9u/jaxws
+  # jdk
+  - $D curl -LO http://hg.openjdk.java.net/jdk-updates/jdk9u/jdk/archive/${OJDK_TAG}.tar.bz2
+  - $D tar -xjf ${OJDK_TAG}.tar.bz2
+  - $D rm ${OJDK_TAG}.tar.bz2
+  - $D mv jdk-${OJDK_TAG} ./jdk9u/jdk
+  # langtools
+  - $D curl -LO http://hg.openjdk.java.net/jdk-updates/jdk9u/langtools/archive/${OJDK_TAG}.tar.bz2
+  - $D tar -xjf ${OJDK_TAG}.tar.bz2
+  - $D rm ${OJDK_TAG}.tar.bz2
+  - $D mv langtools-${OJDK_TAG} ./jdk9u/langtools
+  # nashorn
+  - $D curl -LO http://hg.openjdk.java.net/jdk-updates/jdk9u/nashorn/archive/${OJDK_TAG}.tar.bz2
+  - $D tar -xjf ${OJDK_TAG}.tar.bz2
+  - $D rm ${OJDK_TAG}.tar.bz2
+  - $D mv nashorn-${OJDK_TAG} ./jdk9u/nashorn
 
 script:
   - $D mkdir jdkbuild
