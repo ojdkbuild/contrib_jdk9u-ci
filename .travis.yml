@@ -60,6 +60,7 @@ install:
             libXtst-devel
             libXrender-devel
             xorg-x11-proto-devel
+            elfutils-libelf-devel
             dejavu-serif-fonts
             dejavu-sans-fonts
             dejavu-sans-mono-fonts
@@ -113,6 +114,8 @@ script:
   - $D bash -c "cd jdkbuild &&
         bash /opt/jdk9u/configure
         --enable-unlimited-crypto=yes
+        --disable-warnings-as-errors
+        --disable-hotspot-gtest
         --with-native-debug-symbols=${OJDK_WITH_NATIVE_DEBUG_SYMBOLS} 
         --with-debug-level=${OJDK_WITH_DEBUG_LEVEL}
         --with-stdc++lib=static
