@@ -111,7 +111,7 @@ before_script:
 script:
   - $D mkdir jdkbuild
   - $D bash -c "cd jdkbuild &&
-        bash /opt/jdk9u
+        bash /opt/jdk9u/configure
         --enable-unlimited-crypto=yes
         --with-native-debug-symbols=${OJDK_WITH_NATIVE_DEBUG_SYMBOLS} 
         --with-debug-level=${OJDK_WITH_DEBUG_LEVEL}
@@ -121,7 +121,7 @@ script:
         --with-version-pre=${OJDK_MILESTONE} 
         --with-version-security=${OJDK_UPDATE}
         --with-version-build=${OJDK_BUILD}"
-  - $D make images LOG=info
+  - $D bash -c "cd jdkbuild && make images LOG=info"
   - $D mv /opt/jdkbuild/images/jdk ${OJDK_IMAGE}
   - $D rm -rf ./${OJDK_IMAGE}/demo
   - $D cp -a /usr/share/fonts/dejavu/ ./${OJDK_IMAGE}/lib/fonts
