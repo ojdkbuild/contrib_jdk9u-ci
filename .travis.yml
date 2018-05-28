@@ -72,10 +72,10 @@ before_script:
   - $D tar -xjf ${OJDK_TAG}.tar.bz2
   - $D rm ${OJDK_TAG}.tar.bz2
   - $D mv jdk9u-${OJDK_TAG} jdk9u
-  - for repo in `echo corba hotspot jaxp jaxws jdk langtools nashorn` ; do
-        $D curl -LO http://hg.openjdk.java.net/jdk-updates/jdk9u/${repo}/archive/${OJDK_TAG}.tar.bz2
-        $D tar -xjf ${OJDK_TAG}.tar.bz2
-        $D rm ${OJDK_TAG}.tar.bz2
+  - for repo in `echo corba hotspot jaxp jaxws jdk langtools nashorn` ; do ;
+        $D curl -LO http://hg.openjdk.java.net/jdk-updates/jdk9u/${repo}/archive/${OJDK_TAG}.tar.bz2 ;
+        $D tar -xjf ${OJDK_TAG}.tar.bz2 ;
+        $D rm ${OJDK_TAG}.tar.bz2 ;
         $D mv ${repo}-${OJDK_TAG} ./jdk9u/${repo} ;
     done
 
