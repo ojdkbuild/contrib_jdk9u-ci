@@ -119,11 +119,13 @@ script:
         --with-native-debug-symbols=${OJDK_WITH_NATIVE_DEBUG_SYMBOLS} 
         --with-debug-level=${OJDK_WITH_DEBUG_LEVEL}
         --with-stdc++lib=static
+        --with-zlib=bundled
         --with-boot-jdk=/opt/bootjdk
         --with-cacerts-file=/etc/pki/java/cacerts
         --with-version-pre=${OJDK_MILESTONE} 
         --with-version-security=${OJDK_UPDATE}
-        --with-version-build=${OJDK_BUILD}"
+        --with-version-build=${OJDK_BUILD}
+        --with-version-opt=''"
   - $D bash -c "cd jdkbuild && make images LOG=info"
   - $D mv /opt/jdkbuild/images/jdk ${OJDK_IMAGE}
   - $D rm -rf ./${OJDK_IMAGE}/demo
